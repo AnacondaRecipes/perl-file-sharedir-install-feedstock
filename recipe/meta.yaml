@@ -20,7 +20,7 @@ requirements:
     - make  # [unix]
   host:
     - perl {{ perl }}
-    - perl-exporter 5.74
+    - perl-exporter 5.79
     - perl-extutils-makemaker 7.78
     - perl-carp 1.50
     - perl-file-path 2.18
