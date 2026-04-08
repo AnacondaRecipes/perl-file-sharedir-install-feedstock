@@ -28,7 +28,6 @@ requirements:
     - perl
     - perl-exporter
     - perl-carp
-    - perl-file-path
 
 test:
   imports:
