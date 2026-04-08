@@ -1,0 +1,47 @@
+{% set name = "perl-file-sharedir-install" %}
+{% set version = "0.14" %}
+{% set sha256 = "8f9533b198f2d4a9a5288cbc7d224f7679ad05a7a8573745599789428bc5aea0" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  run_exports:
+    - {{ pin_subpackage('perl-file-sharedir-install', max_pin="x.x") }}
+
+requirements:
+  build:    # [unix]
+    - make  # [unix]
+  host:
+    - perl {{ perl }}
+    - perl-exporter 5.79
+    - perl-extutils-makemaker 7.78
+    - perl-carp 1.50
+    - perl-file-path 2.18
+  run:
+    - perl
+    - perl-exporter
+    - perl-carp
+
+test:
+  imports:
+    - File::ShareDir::Install
+
+about:
+  home: https://github.com/Perl-Toolchain-Gang/File-ShareDir-Install
+  dev_url: https://github.com/Perl-Toolchain-Gang/File-ShareDir-Install
+  doc_url: https://metacpan.org/pod/File::ShareDir::Install
+  summary: Install shared files.
+  description: |
+    File::ShareDir::Install installs shared files for Perl distributions (CPAN `File::ShareDir::Install`).
+  license: GPL-1.0-or-later OR Artistic-1.0-Perl
+  license_family: OTHER
+  license_file:
+    - LICENSE
+
