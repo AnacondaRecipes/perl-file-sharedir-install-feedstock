@@ -16,8 +16,11 @@ build:
     - {{ pin_subpackage('perl-file-sharedir-install', max_pin="x.x") }}
 
 requirements:
-  build:    # [unix]
+  build:
     - make  # [unix]
+    # nmake needed on windows. 
+    - {{ stdlib('c') }}   # [win]
+    - {{ compiler('c')}}  # [win]
   host:
     - perl {{ perl }}
     - perl-exporter 5.79
